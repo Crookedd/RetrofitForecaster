@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -102,16 +103,20 @@ class ViewAdapter : ListAdapter<WeatherForecast, RecyclerView.ViewHolder>(DIFF_C
 //идёт установка соответствуюзих данных.
 class ViewHolderHot(view: View) : RecyclerView.ViewHolder(view) {
     private val textView: TextView = view.findViewById(R.id.textView)
+    private val imageView: ImageView = view.findViewById(R.id.imageViewIcon)
 
     fun bind(forecast: WeatherForecast) {
         textView.text = "${forecast.dt_txt}: ${forecast.main.temp} °C"
+        imageView.setImageResource(R.drawable.hot_foreground)
     }
 }
 
 class ViewHolderCold(view: View) : RecyclerView.ViewHolder(view) {
     private val textView: TextView = view.findViewById(R.id.textView)
+    private val imageView: ImageView = view.findViewById(R.id.imageViewIcon)
 
     fun bind(forecast: WeatherForecast) {
         textView.text = "${forecast.dt_txt}: ${forecast.main.temp} °C"
+        imageView.setImageResource(R.drawable.cold_foreground)
     }
 }
